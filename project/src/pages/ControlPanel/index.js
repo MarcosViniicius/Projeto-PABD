@@ -1,34 +1,20 @@
 
 import React from 'react';
-import { View, 
-  Text, 
-  StyleSheet, 
-  TextInput, 
-  TouchableOpacity 
-} from 'react-native';
-
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import * as Animatable from 'react-native-animatable'
 
-import { useNavigation } from '@react-navigation/native'
-
-export default function SignIn() {
-
-  const onFooterLinkPress = () => {
-    navigation.navigate('Registration')
-}
-
-  const navigation = useNavigation();
-
+export default function ControlPanel() {
   return (
+
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <Text style={styles.message}>Bem-vindo(a)</Text>
+        <Text style={styles.message}>Painel de Controle</Text>
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Email</Text>
+        <Text style={styles.title}>Adicione um produto ao estoque!</Text>
         <TextInput
           placeholder='Digite um email...'
           style={styles.input}
@@ -41,15 +27,9 @@ export default function SignIn() {
           style={styles.input}
         />
 
-        <TouchableOpacity style={styles.button}
-        onPress={ () => navigation.navigate('ControlPanel')}
-        >
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
-
-        <View style={styles.buttonRegister}>
-          <Text style={styles.registerText}>Não possui uma conta? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Cadastre-se!</Text></Text>
-        </View>
 
       </Animatable.View>
 
@@ -81,7 +61,7 @@ const styles = StyleSheet.create({
     paddingEnd: '5%'
   },
   title:{
-    fontSize: 24,
+    fontSize: 28,
     marginTop: 28,
   },
   input:{
@@ -113,10 +93,5 @@ const styles = StyleSheet.create({
   },
   inputArea:{
     flexDirection: 'row'
-  },
-  footerLink: {
-    color: "#788eec",
-    fontWeight: "bold",
-    fontSize: 16
-}
+  }
 })
